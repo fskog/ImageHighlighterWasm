@@ -1,0 +1,71 @@
+﻿@page "/"
+
+
+<div class="row py-5">
+    <div class="col py-5 px-3">
+        <h1 class="text-center">Image Highlighter</h1>
+    </div>
+</div>
+<HighlightImg ImageSrc="/img/Livingroom2.jpg" Items="Livingroom1Items"></HighlightImg>
+<HighlightImg ImageSrc="/img/OfficeSpace1.jpg" Items="OfficeSpace1Items"></HighlightImg>
+
+@code {
+    public List<HighlightItem> OfficeSpace1Items { get; set; } = new List<HighlightItem>();
+    public List<HighlightItem> Livingroom1Items { get; set; } = new List<HighlightItem>();
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        OfficeSpace1Items.Add(new HighlightItem
+        {
+            Header = "Whiteboard",
+            Text = "Metallic whiteboard in shiny white. Use magnets to pin photos and paper to the board. 499 kr.",
+            Active = false,
+            LinkUrl = "https://google.com",
+            Dot = new RelativePosition(80, 20),
+            Position = new RelativePosition(70, 21)
+        });
+        OfficeSpace1Items.Add(new HighlightItem
+        {
+            Header = "Flower pot",
+            Text = "Flower pot in white ceramics, 14cm. 249 kr.",
+            Active = false,
+            LinkUrl = "https://google.com",
+            Dot = new RelativePosition(30, 10),
+            Position = new RelativePosition(26, 11)
+        });
+        OfficeSpace1Items.Add(new HighlightItem
+        {
+            Header = $"Lamp 'Mustard'",
+            Text = "Table lamp in brushed metal, E14 socket. 499 kr.",
+            Active = false,
+            LinkUrl = "https://google.com",
+            Dot = new RelativePosition(68, 50),
+            Position = new RelativePosition(62, 52)
+        });
+
+
+        Livingroom1Items.Add(new HighlightItem
+        {
+            Header = "Pillow",
+            Text = "Pillow in grey fabric, 195 kr",
+            Active = false,
+            LinkUrl = "https://www.ikea.com/se/sv/p/strandmon-oeronlappsfatoelj-nordvalla-moerkgra-20343224/",
+            Dot = new RelativePosition(20, 50),
+            Position = new RelativePosition(20, 52)
+        });
+        Livingroom1Items.Add(new HighlightItem("Mug", "Mug in retro feel, 49 kr", "https://www.ikea.com/se/sv/p/aroed-golv-laeslampa-moerkgra-antracit-30389099/",
+            75, 58, positionPreference: "right"));
+        Livingroom1Items.Add(new HighlightItem("Kragsta", "Soffbord, 1 295 kr", "https://www.ikea.com/se/sv/p/kragsta-soffbord-vit-20286638/",
+    55, 85, posX: 55, posY: 55));
+        Livingroom1Items.Add(new HighlightItem(
+            $"Sofa 'Living'",
+            "3-person sofa in dark grey fabric. Machine washable, 2 995 SEK",
+            "https://www.ikea.com/se/sv/p/harte-led-arbetslampa-svart-silverfaergad-40266984/",
+            22,
+            71,
+            positionPreference: "right"));
+    }
+
+
+}

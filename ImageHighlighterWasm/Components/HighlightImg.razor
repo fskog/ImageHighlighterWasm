@@ -1,0 +1,63 @@
+﻿<div class="row image-hightlight border border-light">
+    <div class="col p-0">
+        <div class="imghl">
+            <div class="imghl__img">
+                <img src="@ImageSrc" class="img-fluid" />
+
+            </div>
+            <div class="imghl__over @(Active ? "active" : "")" @onclick="() => ResetSelection()">
+                @foreach (var item in Items)
+                {
+                    <div class="imghl__over__dot" style="top: @item.Dot.Y%; left: @item.Dot.X%" @onmouseover="() => ToggleActive(item)" @onclick:stopPropagation>
+                        <div class="imghl__over__dot__center"></div>
+                    </div>
+
+                    <div class="imghl__over__item anim-appear @(item.Active ? "active" : "")" style="top: @item.Position.Y%; left: @item.Position.X%">
+                        <div class="imghl__over__item__header">@item.Header</div>
+                        <div class="imghl__over__item__text">@item.Text</div>
+
+                        @if (!string.IsNullOrWhiteSpace(item.LinkUrl))
+                        {
+                            <div class="imghl__over__item__link">
+                                <a class="btn-link" href="@item.LinkUrl">Read more<span class="oi oi-arrow-right ml-1" /></a>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter] public string ImageSrc { get; set; } = string.Empty;
+
+    [Parameter] public List<HighlightItem> Items { get; set; } = new List<HighlightItem>();
+
+    private bool Active => Items.Any(x => x.Active);
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!Items?.Any() ?? false)
+        {
+            Items = new List<HighlightItem>();
+        }
+    }
+    private void ToggleActive(HighlightItem item)
+    {
+        if (item.Active)
+        {
+            //item.Active = false;
+        }
+        else
+        {
+            ResetSelection();
+
+            item.Active = true;
+        }
+    }
+
+    private void ResetSelection()
+    {
+        Items = Items.Select(x => { x.Active = false; return x; }).ToList();
+    }
+}
