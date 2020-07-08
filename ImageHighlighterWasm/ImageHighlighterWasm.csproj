@@ -22,10 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="wwwroot\img\Livingroom2.jpg">
+    <Content Update="wwwroot\images\Livingroom2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\img\OfficeSpace1.jpg">
+    <Content Update="wwwroot\images\OfficeSpace1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
