@@ -77,7 +77,7 @@
       "url": "img\/OfficeSpace1.jpg"
     },
     {
-      "hash": "sha256-uct9Lp+Eyf0XIxAW9MiYk8sEuVQ9zx151yy9b4oJgy4=",
+      "hash": "sha256-6IIDz\/VCTvUq7kVBzF6bwoQ2FDSOfUxQrEZfR2aGND4=",
       "url": "index.html"
     },
     {
